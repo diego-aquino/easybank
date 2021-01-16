@@ -43,6 +43,8 @@ class GlobalDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
 
+          <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap"
