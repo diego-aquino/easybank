@@ -28,7 +28,7 @@ const Header: FC<Props> = (props) => (
   <Container {...props}>
     <Link href="/" passHref>
       <LogoContainer>
-        <Logo />
+        <Logo styleMode="primary" />
       </LogoContainer>
     </Link>
 
