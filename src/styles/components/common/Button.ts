@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import theme from 'styles/theme';
 
 const Button = styled.button`
-  padding: 3.5rem 7.5rem;
+  padding: 3rem 7.5rem;
   border-radius: 20rem;
+
+  position: relative;
 
   font-weight: 700;
   font-size: 3.5rem;
@@ -14,10 +16,26 @@ const Button = styled.button`
   background-color: ${theme.colors.primary.brightCyan};
   background: ${theme.gradients.primary};
 
-  transition: opacity ${theme.transitions.fast};
+  ::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+    background-color: ${theme.colors.neutral.lightGrayishBlue};
+
+    transition: opacity ${theme.transitions.fast};
+  }
 
   :hover {
-    opacity: 0.75;
+    ::after {
+      opacity: 0.2;
+    }
   }
 `;
 
