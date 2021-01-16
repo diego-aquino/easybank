@@ -10,12 +10,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    font-size: 62.5%;
+    font-size: 25%;
   }
 
   body {
     min-height: 100vh;
-    font-size: 1.6rem;
+    font-size: 4rem;
   }
 
   input,
