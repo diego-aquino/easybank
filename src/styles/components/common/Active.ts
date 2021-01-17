@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import theme from 'styles/theme';
 
-const Button = styled.button`
+const activeElementStyles = css`
   padding: 3rem 7.5rem;
+  border: none;
   border-radius: 20rem;
 
   position: relative;
@@ -33,10 +34,18 @@ const Button = styled.button`
   }
 
   :hover {
+    cursor: pointer;
+
     ::after {
       opacity: 0.2;
     }
   }
 `;
 
-export default Button;
+export const Button = styled.button`
+  ${activeElementStyles}
+`;
+
+export const Anchor = styled.a`
+  ${activeElementStyles}
+`;

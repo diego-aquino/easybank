@@ -8,7 +8,7 @@ import {
   Navbar,
   NavbarLi,
 } from 'styles/components/common/Header';
-import Button from 'styles/components/common/Button';
+import { Anchor } from 'styles/components/common/Active';
 
 interface NavbarItemProps {
   href: string;
@@ -43,7 +43,7 @@ const Header: FC<Props> = (props) => (
     </Navbar>
 
     <Link href="/" passHref>
-      <Button as="a">Request Invite</Button>
+      <Anchor>Request Invite</Anchor>
     </Link>
   </Container>
 );
