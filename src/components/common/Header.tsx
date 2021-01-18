@@ -1,20 +1,24 @@
 import { FC, HTMLAttributes } from 'react';
 import Link from 'next/link';
 
-import { Logo } from 'assets';
+import { Logo, HamburgerIcon } from 'assets';
+import { useToggle } from 'hooks';
 import {
   Container,
   LogoContainer,
   Navbar,
+  NavbarLinkUl,
   NavbarLi,
+  RequestInviteAnchor,
+  ToggleNavbarModalButton,
+  StyledCloseIcon,
 } from 'styles/components/common/Header';
-import { Anchor } from 'styles/components/common/Active';
 
-interface NavbarItemProps {
+interface NavbarLinkProps {
   href: string;
 }
 
-const NavbarItem: FC<NavbarItemProps> = ({ href, children }) => (
+const NavbarLinkItem: FC<NavbarLinkProps> = ({ href, children }) => (
   <NavbarLi>
     <Link href={href}>
       <a>{children}</a>
@@ -24,28 +28,35 @@ const NavbarItem: FC<NavbarItemProps> = ({ href, children }) => (
 
 type Props = HTMLAttributes<HTMLElement>;
 
-const Header: FC<Props> = (props) => (
-  <Container {...props}>
-    <Link href="/" passHref>
-      <LogoContainer>
-        <Logo styleMode="primary" />
-      </LogoContainer>
-    </Link>
+const Header: FC<Props> = (props) => {
+  const [navbarModalIsActive, toggleNavbarModalIsActive] = useToggle();
 
-    <Navbar>
-      <ul>
-        <NavbarItem href="/">Home</NavbarItem>
-        <NavbarItem href="/">About</NavbarItem>
-        <NavbarItem href="/">Contact</NavbarItem>
-        <NavbarItem href="/">Blog</NavbarItem>
-        <NavbarItem href="/">Careers</NavbarItem>
-      </ul>
-    </Navbar>
+  return (
+    <Container {...props}>
+      <Link href="/" passHref>
+        <LogoContainer>
+          <Logo styleMode="primary" />
+        </LogoContainer>
+      </Link>
 
-    <Link href="/" passHref>
-      <Anchor>Request Invite</Anchor>
-    </Link>
-  </Container>
-);
+      <Navbar modalActive={navbarModalIsActive}>
+        <NavbarLinkUl>
+          <NavbarLinkItem href="/">Home</NavbarLinkItem>
+          <NavbarLinkItem href="/">About</NavbarLinkItem>
+          <NavbarLinkItem href="/">Contact</NavbarLinkItem>
+          <NavbarLinkItem href="/">Blog</NavbarLinkItem>
+          <NavbarLinkItem href="/">Careers</NavbarLinkItem>
+        </NavbarLinkUl>
+        <ToggleNavbarModalButton onClick={toggleNavbarModalIsActive}>
+          {navbarModalIsActive ? <StyledCloseIcon /> : <HamburgerIcon />}
+        </ToggleNavbarModalButton>
+      </Navbar>
+
+      <Link href="/" passHref>
+        <RequestInviteAnchor>Request Invite</RequestInviteAnchor>
+      </Link>
+    </Container>
+  );
+};
 
 export default Header;
