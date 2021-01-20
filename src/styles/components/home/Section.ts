@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import theme from 'styles/theme';
 
 import { StyledComponentsCSS } from 'typings';
-import { toOpacity } from 'utils/colors';
+import { getScreenWideBackground, toOpacity } from 'utils/styles';
 
 export type BackgroundMode = 'light' | 'dark';
 
@@ -28,18 +28,7 @@ export const Container = styled.section<ContainerProps>`
   margin: 0 auto;
   padding: 22rem 8rem;
 
-  position: relative;
-
-  ::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: calc((100% - 100vw) / 2);
-    width: 100vw;
-    height: 100%;
-    z-index: -1;
-  }
-
+  ${getScreenWideBackground('none')}
   ${({ backgroundMode }) => backgroundStyles[backgroundMode]};
 `;
 

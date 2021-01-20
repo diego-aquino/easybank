@@ -2,7 +2,7 @@ import { CloseIcon } from 'assets';
 import styled, { css } from 'styled-components';
 
 import theme from 'styles/theme';
-import { toOpacity } from 'utils/colors';
+import { getScreenWideBackground, toOpacity } from 'utils/styles';
 import { Anchor } from './Active';
 
 export const Container = styled.header`
@@ -15,20 +15,7 @@ export const Container = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  position: relative;
-
-  ::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 100vw;
-    height: 100%;
-    transform: translateX(-50%);
-    z-index: -1;
-
-    background-color: ${theme.colors.neutral.white};
-  }
+  ${getScreenWideBackground(theme.colors.neutral.white)}
 
   @media (max-width: 768px) {
     height: 16rem;
