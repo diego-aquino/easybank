@@ -65,7 +65,7 @@ export const Navbar = styled.nav<NavbarProps>`
 
       position: absolute;
       top: 16rem;
-      left: -4rem;
+      left: 0;
       z-index: 1;
 
       display: ${({ modalActive }) => (modalActive ? 'block' : 'none')};
