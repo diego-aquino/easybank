@@ -7,9 +7,9 @@ import { getScreenWideBackground } from 'utils/styles';
 
 export const Container = styled.footer`
   width: 100%;
-  max-width: 1024px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 11rem 4rem;
+  padding: 11rem 8rem;
 
   display: flex;
   align-items: center;
@@ -19,8 +19,8 @@ export const Container = styled.footer`
 
   @media (max-width: 640px) {
     flex-direction: column;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 `;
 

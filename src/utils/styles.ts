@@ -43,7 +43,7 @@ export function getScreenWideBackground(
       position: absolute;
       top: 0;
       left: 50%;
-      width: 100vw;
+      width: max(100vw, 100%);
       height: 100%;
       transform: translateX(-50%);
       z-index: -1;

@@ -26,13 +26,18 @@ interface ContainerProps {
 export const Container = styled.section<ContainerProps>`
   max-width: calc(1024px + 16rem);
   margin: 0 auto;
-  padding: 22rem 8rem;
+  padding: 22rem 12rem;
 
   ${getScreenWideBackground('none')}
   ${({ backgroundMode }) => backgroundStyles[backgroundMode]};
+
+  @media (max-width: 768px) {
+    padding: 16rem 8rem;
+  }
 `;
 
 export const Title = styled.h1`
+  width: 100%;
   margin-bottom: 7rem;
 
   font-size: 9.5rem;
@@ -42,6 +47,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
+  width: 100%;
   color: ${toOpacity(theme.colors.primary.darkBlue, 0.65)};
   line-height: 6.75rem;
   font-size: 4.5rem;

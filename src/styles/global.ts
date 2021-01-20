@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 
     font-family: 'Public Sans', sans-serif;
+    word-wrap: break-word;
   }
 
   :root {
