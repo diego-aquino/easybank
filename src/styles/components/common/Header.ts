@@ -2,21 +2,25 @@ import { CloseIcon } from 'assets';
 import styled, { css } from 'styled-components';
 
 import theme from 'styles/theme';
-import { toOpacity } from 'utils/colors';
+import { getScreenWideBackground, toOpacity } from 'utils/styles';
 import { Anchor } from './Active';
 
 export const Container = styled.header`
   width: 100%;
+  max-width: 1200px;
   height: 21rem;
-  max-width: 1024px;
+  padding: 0 8rem;
   margin: 0 auto;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  ${getScreenWideBackground(theme.colors.neutral.white)}
+
   @media (max-width: 768px) {
     height: 16rem;
+    padding: 0 4rem;
   }
 `;
 
@@ -30,7 +34,7 @@ export const NavbarLinkUl = styled.ul`
   list-style: none;
 
   @media (max-width: 768px) {
-    width: calc(100% - 8rem);
+    width: 100%;
     max-width: 70rem;
     border-radius: 1rem;
     padding: 6rem;
@@ -61,7 +65,7 @@ export const Navbar = styled.nav<NavbarProps>`
 
       position: absolute;
       top: 16rem;
-      left: 0;
+      left: -4rem;
       z-index: 1;
 
       display: ${({ modalActive }) => (modalActive ? 'block' : 'none')};
@@ -129,12 +133,13 @@ export const NavbarLi = styled.li`
     padding: 0 2rem;
 
     a {
-      padding: 3rem 1rem;
+      padding: 8rem 0.5rem;
     }
   }
 
   @media (max-width: 768px) {
     a {
+      padding: 3rem 0.5rem;
       color: ${theme.colors.primary.darkBlue};
     }
   }

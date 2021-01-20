@@ -1,3 +1,6 @@
+import { css } from 'styled-components';
+import { StyledComponentsCSS } from 'typings';
+
 function expandHexColorCode(hexColorCode: string): string {
   const [red, green, blue] = Array.from(hexColorCode);
   const expandedHexColorCode = [red, green, blue]
@@ -17,4 +20,35 @@ export function toOpacity(hexColor: string, alpha = 1): string {
     (shouldHaveLeadingZero ? '0' : '') + alphaInHexadecimal;
 
   return expandedRGBColor + formattedHexAlpha;
+}
+
+interface ScreenWidthBackgroundOptions {
+  excludeParentStyles: boolean;
+}
+
+export function getScreenWideBackground(
+  backgroundValue: string,
+  options?: ScreenWidthBackgroundOptions,
+): StyledComponentsCSS {
+  const { excludeParentStyles = false } = options || {};
+
+  return css`
+    ${!excludeParentStyles &&
+    css`
+      position: relative;
+    `}
+
+    ::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: max(100vw, 100%);
+      height: 100%;
+      transform: translateX(-50%);
+      z-index: -1;
+
+      background: ${backgroundValue};
+    }
+  `;
 }

@@ -3,36 +3,24 @@ import styled, { css } from 'styled-components';
 // work around: styled-components won't recognize ExternalLink if we import it from 'components/common'
 import ExternalLink from 'components/common/ExternalLink';
 import theme from 'styles/theme';
+import { getScreenWideBackground } from 'utils/styles';
 
 export const Container = styled.footer`
   width: 100%;
-  max-width: 1024px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 11rem 4rem;
+  padding: 11rem 8rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  position: relative;
-
-  ::after {
-    content: '';
-    width: 100vw;
-    height: 100%;
-
-    position: absolute;
-    bottom: 0;
-    left: calc((100% - 100vw) / 2);
-    z-index: -1;
-
-    background-color: ${theme.colors.primary.darkBlue};
-  }
+  ${getScreenWideBackground(theme.colors.primary.darkBlue)}
 
   @media (max-width: 640px) {
     flex-direction: column;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 `;
 
