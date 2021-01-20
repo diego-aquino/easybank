@@ -31,6 +31,7 @@ export const Hero = styled(Section)`
 
   @media (max-width: 768px) {
     padding-top: 80rem;
+    padding-bottom: 100.5rem;
 
     ${Title} {
       font-size: 12.5rem;
