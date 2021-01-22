@@ -118,3 +118,11 @@ export const HeroImages = styled.div`
     }
   }
 `;
+
+export const FeaturesContainer = styled.div`
+  margin-top: 17rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(55rem, 1fr));
+  gap: 5rem;
+`;

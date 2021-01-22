@@ -2,12 +2,18 @@ import { FC, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { heroSize } from 'resources/home';
+import { heroSize, features } from 'resources/home';
 import { useWindowSize } from 'hooks';
-import { Section } from 'components/home';
+import { FeatureCard, Section } from 'components/home';
 import { Title, Description } from 'styles/components/home/Section';
 import { Anchor } from 'styles/components/common/Active';
-import { Layout, Hero, HeroContent, HeroImages } from 'styles/pages/Home';
+import {
+  Layout,
+  Hero,
+  HeroContent,
+  HeroImages,
+  FeaturesContainer,
+} from 'styles/pages/Home';
 
 const Home: FC = () => {
   const windowSize = useWindowSize();
@@ -59,6 +65,11 @@ const Home: FC = () => {
           <br />
           Control your finances like never before.
         </Description>
+        <FeaturesContainer>
+          {features.map((feature) => (
+            <FeatureCard key={feature.title} {...feature} />
+          ))}
+        </FeaturesContainer>
       </Section>
     </Layout>
   );

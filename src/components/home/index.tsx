@@ -1,3 +1,4 @@
 import Section from './Section';
+import FeatureCard from './FeatureCard';
 
-export { Section };
+export { Section, FeatureCard };
