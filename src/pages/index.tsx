@@ -2,9 +2,9 @@ import { FC, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { heroSize, features } from 'resources/home';
+import { heroSize, features, latestArticles } from 'resources/home';
 import { useWindowSize } from 'hooks';
-import { FeatureCard, Section } from 'components/home';
+import { ArticleCard, FeatureCard, Section } from 'components/home';
 import { Title, Description } from 'styles/components/home/Section';
 import { Anchor } from 'styles/components/common/Active';
 import {
@@ -12,7 +12,10 @@ import {
   Hero,
   HeroContent,
   HeroImages,
+  FeaturesSection,
   FeaturesContainer,
+  ArticlesContainer,
+  LinkToArticle,
 } from 'styles/pages/Home';
 
 const Home: FC = () => {
@@ -58,18 +61,28 @@ const Home: FC = () => {
         </HeroImages>
       </Hero>
 
-      <Section title="Why choose Easybank?" backgroundMode="dark">
+      <FeaturesSection title="Why choose Easybank?" backgroundMode="dark">
         <Description>
           We leverage Open Banking to turn your bank account into your financial
-          hub.
-          <br />
-          Control your finances like never before.
+          hub. Control your finances like never before.
         </Description>
         <FeaturesContainer>
           {features.map((feature) => (
             <FeatureCard key={feature.title} {...feature} />
           ))}
         </FeaturesContainer>
+      </FeaturesSection>
+
+      <Section title="Latest Articles">
+        <ArticlesContainer>
+          {latestArticles.map((article) => (
+            <Link key={article.title} href={article.url} passHref>
+              <LinkToArticle>
+                <ArticleCard {...article} />
+              </LinkToArticle>
+            </Link>
+          ))}
+        </ArticlesContainer>
       </Section>
     </Layout>
   );

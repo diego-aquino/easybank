@@ -2,6 +2,7 @@ const baseColors = {
   primary: {
     darkBlue: '#2d314d',
     limeGreen: '#31d35c',
+    darkLimeGreen: '#1d9b4d',
     brightCyan: '#2bb7da',
   },
   neutral: {
