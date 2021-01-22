@@ -44,6 +44,10 @@ export const Title = styled.h1`
   font-weight: 300;
   font-style: normal;
   color: ${theme.colors.primary.darkBlue};
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export const Description = styled.p`
@@ -51,4 +55,8 @@ export const Description = styled.p`
   color: ${toOpacity(theme.colors.primary.darkBlue, 0.65)};
   line-height: 6.75rem;
   font-size: 4.5rem;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
