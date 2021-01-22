@@ -3,7 +3,20 @@ import styled from 'styled-components';
 import { Layout as RawLayout } from 'components/common';
 import { Container as Header } from 'styles/components/common/Header';
 import { Section } from 'components/home';
-import { Title, Description } from 'styles/components/home/Section';
+import { toOpacity } from 'utils/styles';
+import theme from 'styles/theme';
+import {
+  Title as SectionTitle,
+  Description as SectionDescription,
+} from 'styles/components/home/Section';
+import {
+  Title as ArticleTitle,
+  Container as ArticleContainer,
+} from 'styles/components/home/ArticleCard';
+import {
+  Title as FeatureTitle,
+  Description as FeatureDescription,
+} from 'styles/components/home/FeatureCard';
 
 export const Layout = styled(RawLayout)`
   width: 100%;
@@ -21,11 +34,11 @@ export const Hero = styled(Section)`
   padding-bottom: 125.5rem;
   margin-bottom: -80rem;
 
-  ${Title} {
+  ${SectionTitle} {
     font-size: 14rem;
   }
 
-  ${Description} {
+  ${SectionDescription} {
     margin-bottom: 9rem;
   }
 
@@ -33,7 +46,7 @@ export const Hero = styled(Section)`
     padding-top: 80rem;
     padding-bottom: 100.5rem;
 
-    ${Title} {
+    ${SectionTitle} {
       font-size: 12.5rem;
     }
   }
@@ -115,6 +128,65 @@ export const HeroImages = styled.div`
   @media (max-width: 540px) {
     > *:nth-child(1) {
       bottom: 30rem;
+    }
+  }
+`;
+
+export const FeaturesSection = styled(Section)`
+  ${SectionDescription} {
+    max-width: 170rem;
+  }
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(55rem, 1fr));
+  gap: 7rem 5rem;
+
+  @media (max-width: 284px) {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+`;
+
+export const FeaturesContainer = styled(GridContainer)`
+  margin-top: 15rem;
+
+  @media (max-width: 523px) {
+    row-gap: 10rem;
+    text-align: center;
+
+    ${FeatureTitle} {
+      margin-top: 5.5rem;
+    }
+
+    ${FeatureDescription} {
+      margin-top: 4.5rem;
+    }
+  }
+`;
+
+export const ArticlesContainer = styled(GridContainer)`
+  margin-top: 10rem;
+`;
+
+export const LinkToArticle = styled.a`
+  text-decoration: none;
+
+  ${ArticleContainer} {
+    transition: background-color ${theme.transitions.fast};
+  }
+
+  ${ArticleTitle} {
+    transition: color ${theme.transitions.fast};
+  }
+
+  :hover {
+    ${ArticleContainer} {
+      background-color: ${toOpacity(theme.colors.neutral.grayishBlue, 0.15)};
+    }
+
+    ${ArticleTitle} {
+      color: ${theme.colors.primary.darkLimeGreen};
     }
   }
 `;
