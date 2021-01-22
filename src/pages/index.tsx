@@ -2,26 +2,12 @@ import { FC, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { heroSize } from 'resources/home';
 import { useWindowSize } from 'hooks';
-import { WindowSize } from 'hooks/useWindowSize';
 import { Section } from 'components/home';
 import { Title, Description } from 'styles/components/home/Section';
-import { Layout, Hero, HeroContent, HeroImages } from 'styles/pages/Home';
 import { Anchor } from 'styles/components/common/Active';
-
-const HERO_MOCKUPS_WIDTH_TO_HEIGHT_RATIO = 939 / 767;
-
-type ImageSizeHelper = (isDesktop: boolean, windowSize: WindowSize) => number;
-const getHeroBackgroundWidth: ImageSizeHelper = (isDesktop, windowSize) =>
-  isDesktop ? 1271 : windowSize.width;
-const getHeroBackgroundHeight: ImageSizeHelper = (isDesktop) =>
-  isDesktop ? 1034 : 550;
-const getHeroMockupsWidth: ImageSizeHelper = (isDesktop, windowSize) =>
-  isDesktop ? 767 : windowSize.width - 32;
-const getHeroMockupsHeight: ImageSizeHelper = (isDesktop, windowSize) =>
-  isDesktop
-    ? 939
-    : HERO_MOCKUPS_WIDTH_TO_HEIGHT_RATIO * (windowSize.width - 32);
+import { Layout, Hero, HeroContent, HeroImages } from 'styles/pages/Home';
 
 const Home: FC = () => {
   const windowSize = useWindowSize();
@@ -50,16 +36,16 @@ const Home: FC = () => {
                 : '/hero-background-mobile.svg'
             }
             layout="fixed"
-            width={getHeroBackgroundWidth(isDesktopLayout, windowSize)}
-            height={getHeroBackgroundHeight(isDesktopLayout, windowSize)}
+            width={heroSize.getBackgroundWidth(isDesktopLayout, windowSize)}
+            height={heroSize.getBackgroundHeight(isDesktopLayout, windowSize)}
             objectFit="cover"
             alt=""
           />
           <Image
             src="/hero-mockups.png"
             layout="fixed"
-            width={getHeroMockupsWidth(isDesktopLayout, windowSize)}
-            height={getHeroMockupsHeight(isDesktopLayout, windowSize)}
+            width={heroSize.getMockupsWidth(isDesktopLayout, windowSize)}
+            height={heroSize.getMockupsHeight(isDesktopLayout, windowSize)}
             objectFit="scale-down"
             alt=""
           />
