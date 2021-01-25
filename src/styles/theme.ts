@@ -26,6 +26,6 @@ const theme = {
     fast: '0.1s',
     regular: '0.2s',
   },
-};
+} as const;
 
 export default theme;
