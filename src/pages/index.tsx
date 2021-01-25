@@ -1,9 +1,9 @@
 import { FC, useMemo } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import { heroSize, features, latestArticles } from 'resources/home';
 import { useWindowSize } from 'hooks';
+import { Image } from 'components/common';
 import { ArticleCard, FeatureCard, Section } from 'components/home';
 import { Title, Description } from 'styles/components/home/Section';
 import { Anchor } from 'styles/components/common/Active';

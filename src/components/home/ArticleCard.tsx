@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes } from 'react';
-import Image from 'next/image';
 
+import { Image } from 'components/common';
 import {
   Container,
   CoverImageWrapper,
