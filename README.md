@@ -1,6 +1,7 @@
 <p align="center">
-  <img width="75" src=".github/logo.svg" align="center" alt="Easybank" />
-  <h1 align="center">Easybank landing page</h1>
+  <img width="240" src=".github/logo.svg" align="center" alt="Easybank" />
+  <br />
+  <p align="center"><b>Landing page</b></p>
 </p>
 
 <p align="center">
